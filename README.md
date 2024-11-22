@@ -8,7 +8,6 @@ This project integrates the **TP-Link Kasa KP115 Smart Plug** into a DIY solutio
 - **Real-Time Energy Monitoring**: Fetch current power (Watts) and cumulative energy (kWh) usage.
 - **Data Analytics**: Store and analyze historical data for long-term energy trends.
 - **Web Integration**: Visualize energy usage through a custom-built web dashboard.
-- **API Control**: Interact with the KP115 using Python scripts and open-source libraries.
 
 ---
 
@@ -45,10 +44,3 @@ Follow these steps to set up the project:
   - Web front-end (HTML/CSS/JavaScript)
 
 ---
-
-## Installation
-
-### Step 1: Clone the Repository
-```bash
-git clone https://github.com/your-username/kp115-energy-monitor.git
-cd kp115-energy-monitor
