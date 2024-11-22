@@ -42,5 +42,3 @@ Follow these steps to set up the project:
 - **Other Tools**:
   - Database for analytics (e.g., SQLite, PostgreSQL)
   - Web front-end (HTML/CSS/JavaScript)
-
----
