@@ -1,5 +1,11 @@
 // script.js
 
+function showTab(tabId) {
+    document.getElementById('status').style.display = 'none';
+    document.getElementById('history').style.display = 'none';
+    document.getElementById(tabId).style.display = 'block';
+}
+
 // Replace this with your real API endpoint
 const API_URL = "https://wattwise.onrender.com/"; // Placeholder URL
 
