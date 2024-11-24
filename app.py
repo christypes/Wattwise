@@ -1,6 +1,6 @@
-# from tplinkcloud import TPLinkDeviceManager
-# import asyncio
-# import json
+from flask import Flask, jsonify
+from tplinkcloud import TPLinkDeviceManager
+import asyncio, json
 
 # async def main():
 #     manager = TPLinkDeviceManager("msg.shkim@gmail.com", "ck951753")
@@ -9,9 +9,6 @@
 #     print(json.dumps(power_usage, indent=2, default=lambda x: x.__dict__))
 # asyncio.run(main())
 
-from flask import Flask, jsonify
-from tplinkcloud import TPLinkDeviceManager
-
 # Initialize Flask app
 app = Flask(__name__)
 manager = TPLinkDeviceManager("msg.shkim@gmail.com", "ck951753")
@@ -19,17 +16,17 @@ manager = TPLinkDeviceManager("msg.shkim@gmail.com", "ck951753")
 @app.route('/api/status', methods=['GET'])
 def get_device_status():
     try:
-        devices = manager.get_devices()
-        for device in devices:
-            if device.alias == "Your KP115 Alias":  # Replace with your device's alias
-                energy_data = device.get_energy_usage()
-                return jsonify({
-                    "current_power": energy_data["current_power"],
-                    "total_energy": energy_data["total_energy"]
-                })
+        async def fetch_data():
+            device = await manager.find_device("Laundry")
+            return await device.get_power_usage_realtime()
+        energy_data = asyncio.run(fetch_data())
+        return jsonify({
+                    "current_power": energy_data.power_mw,
+                    "total_energy": energy_data.total_wh
+                })  
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
 # Run Flask server
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=5001, debug=True)

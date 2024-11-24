@@ -1,7 +1,7 @@
 // script.js
 
 // Replace this with your real API endpoint
-const API_URL = "https://example.com/api/energy"; // Placeholder URL
+const API_URL = "http://127.0.0.1:5000"; // Placeholder URL
 
 async function fetchDeviceStatus() {
     try {
