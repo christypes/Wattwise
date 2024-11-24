@@ -1,6 +1,6 @@
 // script.js
 
-const API_URL = "https://wattwise.onrender.com/";
+const API_URL = "https://wattwise.onrender.com";
 
 function showTab(tabId) {
     document.getElementById('status').style.display = 'none';
@@ -12,6 +12,8 @@ async function fetchDeviceStatus() {
     try {
         const response = await fetch(`${API_URL}/api/status`);
         const data = await response.json();
+        console.log(data);
+        console.log(data);
 
         if (data.error){
             console.error("Error fetching device status:", data.error);
