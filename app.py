@@ -1,7 +1,9 @@
 from flask import Flask, jsonify
+from flask_cors import CORS
 from tplinkcloud import TPLinkDeviceManager
 import asyncio, json
 
+# To 
 # async def main():
 #     manager = TPLinkDeviceManager("msg.shkim@gmail.com", "ck951753")
 #     device = await manager.find_device("Laundry")
@@ -11,6 +13,9 @@ import asyncio, json
 
 # Initialize Flask app
 app = Flask(__name__)
+
+# Allows CORS (Cross Origin Resource Sharing)
+CORS(app, resources={r"/*": {"origins": "https://your-frontend-domain.github.io"}})         
 manager = TPLinkDeviceManager("msg.shkim@gmail.com", "ck951753")
 
 @app.route('/api/status', methods=['GET'])

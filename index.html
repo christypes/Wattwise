@@ -11,25 +11,34 @@
         <h1>WattWise Dashboard</h1>
     </header>
     <main>
-        <div class="card" id="status-card">
-            <h2>Device Status</h2>
-            <p id="device-status" class="status-text">Checking...</p>
+        <div class="tabs">
+            <button class="tab-link" onclick="showTab('status')">Current Status</button>
+            <button class="tab-link" onclick="showTab('history')">Historical Data</button>
         </div>
-        <div class="card" id="usage-card">
-            <h2>Energy Usage</h2>
-            <div class="usage-info">
-                <span id="current-usage" class="usage-value">0 W</span>
-                <span class="usage-label">Current</span>
+        <div class="tab-content" id="status">
+            <h2>Current Status</h2>
+            <div class="card" id="status-card">
+                <h2>Device Status</h2>
+                <p id="device-status" class="status-text">Checking...</p>
             </div>
-            <div class="usage-info">
-                <span id="total-usage" class="usage-value">Total: 0 kWh</span>
-                <span class="usage-label">Lifetime</span>
+            <div class="card" id="usage-card">
+                <h2>Energy Usage</h2>
+                <div class="usage-info">
+                    <span id="current-usage" class="usage-value">0 W</span>
+                    <span class="usage-label">Current</span>
+                </div>
+                <div class="usage-info">
+                    <span id="total-usage" class="usage-value">Total: 0 kWh</span>
+                    <span class="usage-label">Lifetime</span>
+                </div>
             </div>
         </div>
-        <div class="card" id="chart-card">
-            <h2>Historical Data</h2>
-            <canvas id="historicalChart"></canvas>
-        </div>        
+        <div class="tab-content" id="history">
+            <div class="card" id="chart-card">
+                <h2>Historical Data</h2>
+                <canvas id="historicalChart"></canvas>
+            </div>
+        </div>
     </main>
     <footer>
         <p>&copy; 2024 WattWise</p>
